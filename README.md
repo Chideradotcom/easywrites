@@ -1,16 +1,25 @@
-# React + Vite
+# Contextual React Notes App (Local-First Architecture)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A privacy-focused, local-first React application designed to balance manual user organization with automatic, semantic/contextual note categorization. By keeping all processing and storage constrained to the client side, this application eliminates common cloud-based security concerns while delivering smart classification.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Core Architecture & Design Patterns
 
-## React Compiler
+### 1. Local-First Architecture
+* **Privacy Horizon:** All raw input data and generated thoughts remain strictly on the client hardware. No text content is sent to third-party servers or external cloud horizons for indexing.
+* **Storage Framework:** Backed natively by browser storage mechanisms (configured for robust serialization and deserialization cycles) to ensure offline availability and low-latency interaction.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Defensive Join-Table State Machine
+To handle overlapping categorization mechanics without creating chaotic data references, the application employs a defensive join-table style database schema to model many-to-many relationships safely.
 
-## Expanding the ESLint configuration
+* **`notes` Entity:** Stores individual text content, timestamps, and metadata.
+* **`categories` Entity:** Contains categorical entries created manually by the user or dynamically suggested by semantic matching.
+* **`noteCategories` Schema:** The junction model linking notes to categories.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```typescript
+interface NoteCategoryJunction {
+  noteId: string;
+  categoryId: string;
+  isLocked: boolean; // Protects manual intent from automatic context overwrites
+}
