@@ -1,0 +1,74 @@
+:root {
+  /* Surface Colors */
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e1e3e5;
+
+  /* Brand Colors (Primary - #0f4c81) */
+  --color-primary: #0f4c81;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d6e3ff;
+  --color-on-primary-container: #001b3e;
+
+  /* Secondary Colors (Purple/AI Tags - Refined in session) */
+  --color-secondary: #6750a4;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e9ddff;
+  --color-on-secondary-container: #21005d;
+
+  /* Neutrals & Outline */
+  --color-outline: #74777f;
+  --color-outline-variant: #c4c6cf;
+  --color-on-surface: #191c20;
+  --color-on-surface-variant: #44474e;
+
+  /* Typography (Geist) */
+  --font-family-sans:
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing Units */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-gutter: 1.5rem;
+
+  /* Border Radius (ROUND_EIGHT) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+.material-symbols-outlined-filled {
+  color: var(--color-primary);
+}
